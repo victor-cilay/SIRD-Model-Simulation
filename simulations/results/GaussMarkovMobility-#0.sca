@@ -1,0 +1,3390 @@
+version 3
+run GaussMarkovMobility-0-20231221-02:16:21-33896
+attr configname GaussMarkovMobility
+attr datetime 20231221-02:16:21
+attr datetimef 20231221-021621
+attr experiment GaussMarkovMobility
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network SIRD
+attr processid 33896
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../images;../../inet4.5/images
+config *.numHosts 7
+config *.host[*].mobility.typename GaussMarkovMobility
+config **.mobility.speed 40mps
+config **.mobility.margin 0m
+config **.mobility.speedStdDev 0.5mps
+config **.mobility.angleStdDev 0.5rad
+config **.mobility.alpha 0
+config network SIRD
+config image-path "\"/home/user/Integration/inet/showcases/general/simpleMobility\""
+config **.networkConfiguratorModule "\"\""
+config *.visualizer.*.mobilityVisualizer.displayMobility true
+config *.visualizer.*.mobilityVisualizer.displayPositions true
+config *.visualizer.*.mobilityVisualizer.displayOrientations true
+config *.visualizer.*.mobilityVisualizer.displayVelocities true
+config *.visualizer.*.mobilityVisualizer.displayMovementTrails true
+config **.constraintAreaMinX 0m
+config **.constraintAreaMaxX 2000m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMaxY 1200m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxZ 0m
+
+par SIRD.host[0].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[0].mobility subjectModule "\"^\""
+par SIRD.host[0].mobility coordinateSystemModule "\"\""
+par SIRD.host[0].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[0].mobility updateDisplayString true
+par SIRD.host[0].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[0].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[0].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[0].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[0].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[0].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[0].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[0].mobility faceForward true
+par SIRD.host[0].mobility alpha 0
+par SIRD.host[0].mobility speed 40mps
+attr unit mps
+par SIRD.host[0].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[0].mobility angle 197.573deg
+attr unit deg
+par SIRD.host[0].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[0].mobility margin 0m
+attr unit m
+par SIRD.host[0].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[0].interfaceTable displayAddresses false
+par SIRD.host[0].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].cb forwardServiceRegistration true
+par SIRD.host[0].cb forwardProtocolRegistration true
+par SIRD.host[0].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].bl forwardServiceRegistration true
+par SIRD.host[0].bl forwardProtocolRegistration true
+par SIRD.host[0].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].li forwardServiceRegistration true
+par SIRD.host[0].li forwardProtocolRegistration true
+par SIRD.host[0].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[0].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[0].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[0].lo[0].lo interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[0].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[0].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[0].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[0].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[0].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[0].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[0].lo[0] recordPcap false
+par SIRD.host[0].lo[0] numPcapRecorders 0
+par SIRD.host[0].lo[0] interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+scalar SIRD.host[0].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[0].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[0].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[0].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[0].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[0].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[0].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[0].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[0].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[0].ipv4.configurator interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4.configurator routingTableModule "\"SIRD.host[0].ipv4.routingTable\""
+par SIRD.host[0].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[0].ipv4.configurator configureRoutingTable true
+par SIRD.host[0].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[0].ipv4.routingTable interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[0].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[0].ipv4.routingTable forwarding false
+par SIRD.host[0].ipv4.routingTable multicastForwarding false
+par SIRD.host[0].ipv4.routingTable useAdminDist false
+par SIRD.host[0].ipv4.routingTable routingFile "\"\""
+par SIRD.host[0].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[0].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[0].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[0].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].ipv4.up forwardServiceRegistration true
+par SIRD.host[0].ipv4.up forwardProtocolRegistration true
+par SIRD.host[0].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[0].ipv4.igmp interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4.igmp routingTableModule "\"SIRD.host[0].ipv4.routingTable\""
+par SIRD.host[0].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[0].ipv4.igmp enabled true
+par SIRD.host[0].ipv4.igmp robustnessVariable 2
+par SIRD.host[0].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[0].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[0].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[0].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[0].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[0].ipv4.igmp startupQueryCount 2
+par SIRD.host[0].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[0].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[0].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[0].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[0].ipv4.icmp interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4.icmp routingTableModule "\"SIRD.host[0].ipv4.routingTable\""
+par SIRD.host[0].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[0].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[0].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].ipv4.mp forwardServiceRegistration true
+par SIRD.host[0].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[0].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[0].ipv4.ip interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4.ip routingTableModule "\"SIRD.host[0].ipv4.routingTable\""
+par SIRD.host[0].ipv4.ip arpModule "\"SIRD.host[0].ipv4.arp\""
+par SIRD.host[0].ipv4.ip icmpModule "\"SIRD.host[0].ipv4.icmp\""
+par SIRD.host[0].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[0].ipv4.ip timeToLive 32
+par SIRD.host[0].ipv4.ip multicastTimeToLive 32
+par SIRD.host[0].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[0].ipv4.ip limitedBroadcast false
+par SIRD.host[0].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[0].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[0].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[0].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[0].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[0].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[0].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[0].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[0].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[0].ipv4.arp interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4.arp routingTableModule "\"SIRD.host[0].ipv4.routingTable\""
+par SIRD.host[0].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[0].ipv4.arp retryCount 3
+par SIRD.host[0].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[0].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[0].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[0].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[0].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[0].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[0].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[0].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[0].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].ipv4.lp forwardServiceRegistration true
+par SIRD.host[0].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[0].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[0].ipv4 forwarding false
+par SIRD.host[0].ipv4 multicastForwarding false
+par SIRD.host[0].ipv4 interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[0].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].nl forwardServiceRegistration true
+par SIRD.host[0].nl forwardProtocolRegistration true
+par SIRD.host[0].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[0].udp interfaceTableModule "\"SIRD.host[0].interfaceTable\""
+par SIRD.host[0].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[0].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[0].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[0].udp defaultMulticastLoop true
+scalar SIRD.host[0].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[0].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[0].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[0].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[0].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[0].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[0].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[0].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[0].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[0].tcp advertisedWindow 7504
+par SIRD.host[0].tcp delayedAcksEnabled false
+par SIRD.host[0].tcp nagleEnabled true
+par SIRD.host[0].tcp limitedTransmitEnabled false
+par SIRD.host[0].tcp increasedIWEnabled false
+par SIRD.host[0].tcp sackSupport false
+par SIRD.host[0].tcp windowScalingSupport false
+par SIRD.host[0].tcp windowScalingFactor -1
+par SIRD.host[0].tcp timestampSupport false
+par SIRD.host[0].tcp mss 536
+par SIRD.host[0].tcp msl 120s
+attr unit s
+par SIRD.host[0].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[0].tcp useDataNotification false
+par SIRD.host[0].tcp dupthresh 3
+par SIRD.host[0].tcp initialSsthresh 4294967295
+par SIRD.host[0].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[0].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[0].tcp ecnWillingness false
+par SIRD.host[0].tcp dctcpGamma 0.0625
+par SIRD.host[0].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].tn forwardServiceRegistration true
+par SIRD.host[0].tn forwardProtocolRegistration true
+par SIRD.host[0].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[0].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[0].at forwardServiceRegistration true
+par SIRD.host[0].at forwardProtocolRegistration true
+par SIRD.host[0] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[0] hasStatus false
+par SIRD.host[0] osgModel "\"\""
+par SIRD.host[0] osgModelColor "\"\""
+par SIRD.host[0] canvasImage "\"\""
+par SIRD.host[0] canvasImageColor "\"\""
+par SIRD.host[0] recordPcap false
+par SIRD.host[0] numPcapRecorders 0
+par SIRD.host[0] numLoInterfaces 1
+par SIRD.host[0] numWlanInterfaces 0
+par SIRD.host[0] numEthInterfaces 0
+par SIRD.host[0] numPppInterfaces 0
+par SIRD.host[0] numTunInterfaces 0
+par SIRD.host[0] numVirtInterfaces 0
+par SIRD.host[0] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[0] hasIpv4 true
+par SIRD.host[0] hasIpv6 false
+par SIRD.host[0] hasGn false
+par SIRD.host[0] forwarding false
+par SIRD.host[0] multicastForwarding false
+par SIRD.host[0] hasUdp true
+par SIRD.host[0] hasTcp true
+par SIRD.host[0] hasSctp false
+par SIRD.host[0] numApps 0
+par SIRD.host[1].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[1].mobility subjectModule "\"^\""
+par SIRD.host[1].mobility coordinateSystemModule "\"\""
+par SIRD.host[1].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[1].mobility updateDisplayString true
+par SIRD.host[1].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[1].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[1].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[1].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[1].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[1].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[1].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[1].mobility faceForward true
+par SIRD.host[1].mobility alpha 0
+par SIRD.host[1].mobility speed 40mps
+attr unit mps
+par SIRD.host[1].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[1].mobility angle 213.424deg
+attr unit deg
+par SIRD.host[1].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[1].mobility margin 0m
+attr unit m
+par SIRD.host[1].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[1].interfaceTable displayAddresses false
+par SIRD.host[1].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].cb forwardServiceRegistration true
+par SIRD.host[1].cb forwardProtocolRegistration true
+par SIRD.host[1].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].bl forwardServiceRegistration true
+par SIRD.host[1].bl forwardProtocolRegistration true
+par SIRD.host[1].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].li forwardServiceRegistration true
+par SIRD.host[1].li forwardProtocolRegistration true
+par SIRD.host[1].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[1].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[1].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[1].lo[0].lo interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[1].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[1].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[1].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[1].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[1].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[1].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[1].lo[0] recordPcap false
+par SIRD.host[1].lo[0] numPcapRecorders 0
+par SIRD.host[1].lo[0] interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+scalar SIRD.host[1].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[1].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[1].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[1].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[1].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[1].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[1].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[1].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[1].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[1].ipv4.configurator interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4.configurator routingTableModule "\"SIRD.host[1].ipv4.routingTable\""
+par SIRD.host[1].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[1].ipv4.configurator configureRoutingTable true
+par SIRD.host[1].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[1].ipv4.routingTable interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[1].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[1].ipv4.routingTable forwarding false
+par SIRD.host[1].ipv4.routingTable multicastForwarding false
+par SIRD.host[1].ipv4.routingTable useAdminDist false
+par SIRD.host[1].ipv4.routingTable routingFile "\"\""
+par SIRD.host[1].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[1].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[1].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[1].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].ipv4.up forwardServiceRegistration true
+par SIRD.host[1].ipv4.up forwardProtocolRegistration true
+par SIRD.host[1].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[1].ipv4.igmp interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4.igmp routingTableModule "\"SIRD.host[1].ipv4.routingTable\""
+par SIRD.host[1].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[1].ipv4.igmp enabled true
+par SIRD.host[1].ipv4.igmp robustnessVariable 2
+par SIRD.host[1].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[1].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[1].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[1].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[1].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[1].ipv4.igmp startupQueryCount 2
+par SIRD.host[1].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[1].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[1].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[1].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[1].ipv4.icmp interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4.icmp routingTableModule "\"SIRD.host[1].ipv4.routingTable\""
+par SIRD.host[1].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[1].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[1].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].ipv4.mp forwardServiceRegistration true
+par SIRD.host[1].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[1].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[1].ipv4.ip interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4.ip routingTableModule "\"SIRD.host[1].ipv4.routingTable\""
+par SIRD.host[1].ipv4.ip arpModule "\"SIRD.host[1].ipv4.arp\""
+par SIRD.host[1].ipv4.ip icmpModule "\"SIRD.host[1].ipv4.icmp\""
+par SIRD.host[1].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[1].ipv4.ip timeToLive 32
+par SIRD.host[1].ipv4.ip multicastTimeToLive 32
+par SIRD.host[1].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[1].ipv4.ip limitedBroadcast false
+par SIRD.host[1].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[1].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[1].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[1].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[1].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[1].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[1].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[1].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[1].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[1].ipv4.arp interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4.arp routingTableModule "\"SIRD.host[1].ipv4.routingTable\""
+par SIRD.host[1].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[1].ipv4.arp retryCount 3
+par SIRD.host[1].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[1].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[1].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[1].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[1].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[1].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[1].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[1].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[1].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].ipv4.lp forwardServiceRegistration true
+par SIRD.host[1].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[1].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[1].ipv4 forwarding false
+par SIRD.host[1].ipv4 multicastForwarding false
+par SIRD.host[1].ipv4 interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[1].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].nl forwardServiceRegistration true
+par SIRD.host[1].nl forwardProtocolRegistration true
+par SIRD.host[1].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[1].udp interfaceTableModule "\"SIRD.host[1].interfaceTable\""
+par SIRD.host[1].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[1].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[1].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[1].udp defaultMulticastLoop true
+scalar SIRD.host[1].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[1].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[1].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[1].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[1].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[1].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[1].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[1].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[1].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[1].tcp advertisedWindow 7504
+par SIRD.host[1].tcp delayedAcksEnabled false
+par SIRD.host[1].tcp nagleEnabled true
+par SIRD.host[1].tcp limitedTransmitEnabled false
+par SIRD.host[1].tcp increasedIWEnabled false
+par SIRD.host[1].tcp sackSupport false
+par SIRD.host[1].tcp windowScalingSupport false
+par SIRD.host[1].tcp windowScalingFactor -1
+par SIRD.host[1].tcp timestampSupport false
+par SIRD.host[1].tcp mss 536
+par SIRD.host[1].tcp msl 120s
+attr unit s
+par SIRD.host[1].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[1].tcp useDataNotification false
+par SIRD.host[1].tcp dupthresh 3
+par SIRD.host[1].tcp initialSsthresh 4294967295
+par SIRD.host[1].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[1].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[1].tcp ecnWillingness false
+par SIRD.host[1].tcp dctcpGamma 0.0625
+par SIRD.host[1].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].tn forwardServiceRegistration true
+par SIRD.host[1].tn forwardProtocolRegistration true
+par SIRD.host[1].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[1].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[1].at forwardServiceRegistration true
+par SIRD.host[1].at forwardProtocolRegistration true
+par SIRD.host[1] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[1] hasStatus false
+par SIRD.host[1] osgModel "\"\""
+par SIRD.host[1] osgModelColor "\"\""
+par SIRD.host[1] canvasImage "\"\""
+par SIRD.host[1] canvasImageColor "\"\""
+par SIRD.host[1] recordPcap false
+par SIRD.host[1] numPcapRecorders 0
+par SIRD.host[1] numLoInterfaces 1
+par SIRD.host[1] numWlanInterfaces 0
+par SIRD.host[1] numEthInterfaces 0
+par SIRD.host[1] numPppInterfaces 0
+par SIRD.host[1] numTunInterfaces 0
+par SIRD.host[1] numVirtInterfaces 0
+par SIRD.host[1] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[1] hasIpv4 true
+par SIRD.host[1] hasIpv6 false
+par SIRD.host[1] hasGn false
+par SIRD.host[1] forwarding false
+par SIRD.host[1] multicastForwarding false
+par SIRD.host[1] hasUdp true
+par SIRD.host[1] hasTcp true
+par SIRD.host[1] hasSctp false
+par SIRD.host[1] numApps 0
+par SIRD.host[2].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[2].mobility subjectModule "\"^\""
+par SIRD.host[2].mobility coordinateSystemModule "\"\""
+par SIRD.host[2].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[2].mobility updateDisplayString true
+par SIRD.host[2].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[2].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[2].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[2].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[2].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[2].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[2].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[2].mobility faceForward true
+par SIRD.host[2].mobility alpha 0
+par SIRD.host[2].mobility speed 40mps
+attr unit mps
+par SIRD.host[2].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[2].mobility angle 257.468deg
+attr unit deg
+par SIRD.host[2].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[2].mobility margin 0m
+attr unit m
+par SIRD.host[2].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[2].interfaceTable displayAddresses false
+par SIRD.host[2].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].cb forwardServiceRegistration true
+par SIRD.host[2].cb forwardProtocolRegistration true
+par SIRD.host[2].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].bl forwardServiceRegistration true
+par SIRD.host[2].bl forwardProtocolRegistration true
+par SIRD.host[2].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].li forwardServiceRegistration true
+par SIRD.host[2].li forwardProtocolRegistration true
+par SIRD.host[2].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[2].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[2].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[2].lo[0].lo interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[2].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[2].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[2].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[2].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[2].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[2].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[2].lo[0] recordPcap false
+par SIRD.host[2].lo[0] numPcapRecorders 0
+par SIRD.host[2].lo[0] interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+scalar SIRD.host[2].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[2].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[2].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[2].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[2].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[2].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[2].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[2].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[2].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[2].ipv4.configurator interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4.configurator routingTableModule "\"SIRD.host[2].ipv4.routingTable\""
+par SIRD.host[2].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[2].ipv4.configurator configureRoutingTable true
+par SIRD.host[2].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[2].ipv4.routingTable interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[2].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[2].ipv4.routingTable forwarding false
+par SIRD.host[2].ipv4.routingTable multicastForwarding false
+par SIRD.host[2].ipv4.routingTable useAdminDist false
+par SIRD.host[2].ipv4.routingTable routingFile "\"\""
+par SIRD.host[2].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[2].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[2].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[2].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].ipv4.up forwardServiceRegistration true
+par SIRD.host[2].ipv4.up forwardProtocolRegistration true
+par SIRD.host[2].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[2].ipv4.igmp interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4.igmp routingTableModule "\"SIRD.host[2].ipv4.routingTable\""
+par SIRD.host[2].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[2].ipv4.igmp enabled true
+par SIRD.host[2].ipv4.igmp robustnessVariable 2
+par SIRD.host[2].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[2].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[2].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[2].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[2].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[2].ipv4.igmp startupQueryCount 2
+par SIRD.host[2].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[2].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[2].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[2].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[2].ipv4.icmp interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4.icmp routingTableModule "\"SIRD.host[2].ipv4.routingTable\""
+par SIRD.host[2].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[2].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[2].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].ipv4.mp forwardServiceRegistration true
+par SIRD.host[2].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[2].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[2].ipv4.ip interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4.ip routingTableModule "\"SIRD.host[2].ipv4.routingTable\""
+par SIRD.host[2].ipv4.ip arpModule "\"SIRD.host[2].ipv4.arp\""
+par SIRD.host[2].ipv4.ip icmpModule "\"SIRD.host[2].ipv4.icmp\""
+par SIRD.host[2].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[2].ipv4.ip timeToLive 32
+par SIRD.host[2].ipv4.ip multicastTimeToLive 32
+par SIRD.host[2].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[2].ipv4.ip limitedBroadcast false
+par SIRD.host[2].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[2].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[2].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[2].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[2].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[2].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[2].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[2].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[2].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[2].ipv4.arp interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4.arp routingTableModule "\"SIRD.host[2].ipv4.routingTable\""
+par SIRD.host[2].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[2].ipv4.arp retryCount 3
+par SIRD.host[2].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[2].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[2].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[2].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[2].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[2].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[2].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[2].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[2].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].ipv4.lp forwardServiceRegistration true
+par SIRD.host[2].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[2].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[2].ipv4 forwarding false
+par SIRD.host[2].ipv4 multicastForwarding false
+par SIRD.host[2].ipv4 interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[2].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].nl forwardServiceRegistration true
+par SIRD.host[2].nl forwardProtocolRegistration true
+par SIRD.host[2].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[2].udp interfaceTableModule "\"SIRD.host[2].interfaceTable\""
+par SIRD.host[2].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[2].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[2].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[2].udp defaultMulticastLoop true
+scalar SIRD.host[2].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[2].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[2].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[2].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[2].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[2].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[2].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[2].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[2].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[2].tcp advertisedWindow 7504
+par SIRD.host[2].tcp delayedAcksEnabled false
+par SIRD.host[2].tcp nagleEnabled true
+par SIRD.host[2].tcp limitedTransmitEnabled false
+par SIRD.host[2].tcp increasedIWEnabled false
+par SIRD.host[2].tcp sackSupport false
+par SIRD.host[2].tcp windowScalingSupport false
+par SIRD.host[2].tcp windowScalingFactor -1
+par SIRD.host[2].tcp timestampSupport false
+par SIRD.host[2].tcp mss 536
+par SIRD.host[2].tcp msl 120s
+attr unit s
+par SIRD.host[2].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[2].tcp useDataNotification false
+par SIRD.host[2].tcp dupthresh 3
+par SIRD.host[2].tcp initialSsthresh 4294967295
+par SIRD.host[2].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[2].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[2].tcp ecnWillingness false
+par SIRD.host[2].tcp dctcpGamma 0.0625
+par SIRD.host[2].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].tn forwardServiceRegistration true
+par SIRD.host[2].tn forwardProtocolRegistration true
+par SIRD.host[2].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[2].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[2].at forwardServiceRegistration true
+par SIRD.host[2].at forwardProtocolRegistration true
+par SIRD.host[2] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[2] hasStatus false
+par SIRD.host[2] osgModel "\"\""
+par SIRD.host[2] osgModelColor "\"\""
+par SIRD.host[2] canvasImage "\"\""
+par SIRD.host[2] canvasImageColor "\"\""
+par SIRD.host[2] recordPcap false
+par SIRD.host[2] numPcapRecorders 0
+par SIRD.host[2] numLoInterfaces 1
+par SIRD.host[2] numWlanInterfaces 0
+par SIRD.host[2] numEthInterfaces 0
+par SIRD.host[2] numPppInterfaces 0
+par SIRD.host[2] numTunInterfaces 0
+par SIRD.host[2] numVirtInterfaces 0
+par SIRD.host[2] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[2] hasIpv4 true
+par SIRD.host[2] hasIpv6 false
+par SIRD.host[2] hasGn false
+par SIRD.host[2] forwarding false
+par SIRD.host[2] multicastForwarding false
+par SIRD.host[2] hasUdp true
+par SIRD.host[2] hasTcp true
+par SIRD.host[2] hasSctp false
+par SIRD.host[2] numApps 0
+par SIRD.host[3].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[3].mobility subjectModule "\"^\""
+par SIRD.host[3].mobility coordinateSystemModule "\"\""
+par SIRD.host[3].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[3].mobility updateDisplayString true
+par SIRD.host[3].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[3].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[3].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[3].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[3].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[3].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[3].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[3].mobility faceForward true
+par SIRD.host[3].mobility alpha 0
+par SIRD.host[3].mobility speed 40mps
+attr unit mps
+par SIRD.host[3].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[3].mobility angle 303.936deg
+attr unit deg
+par SIRD.host[3].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[3].mobility margin 0m
+attr unit m
+par SIRD.host[3].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[3].interfaceTable displayAddresses false
+par SIRD.host[3].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].cb forwardServiceRegistration true
+par SIRD.host[3].cb forwardProtocolRegistration true
+par SIRD.host[3].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].bl forwardServiceRegistration true
+par SIRD.host[3].bl forwardProtocolRegistration true
+par SIRD.host[3].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].li forwardServiceRegistration true
+par SIRD.host[3].li forwardProtocolRegistration true
+par SIRD.host[3].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[3].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[3].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[3].lo[0].lo interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[3].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[3].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[3].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[3].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[3].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[3].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[3].lo[0] recordPcap false
+par SIRD.host[3].lo[0] numPcapRecorders 0
+par SIRD.host[3].lo[0] interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+scalar SIRD.host[3].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[3].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[3].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[3].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[3].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[3].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[3].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[3].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[3].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[3].ipv4.configurator interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4.configurator routingTableModule "\"SIRD.host[3].ipv4.routingTable\""
+par SIRD.host[3].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[3].ipv4.configurator configureRoutingTable true
+par SIRD.host[3].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[3].ipv4.routingTable interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[3].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[3].ipv4.routingTable forwarding false
+par SIRD.host[3].ipv4.routingTable multicastForwarding false
+par SIRD.host[3].ipv4.routingTable useAdminDist false
+par SIRD.host[3].ipv4.routingTable routingFile "\"\""
+par SIRD.host[3].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[3].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[3].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[3].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].ipv4.up forwardServiceRegistration true
+par SIRD.host[3].ipv4.up forwardProtocolRegistration true
+par SIRD.host[3].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[3].ipv4.igmp interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4.igmp routingTableModule "\"SIRD.host[3].ipv4.routingTable\""
+par SIRD.host[3].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[3].ipv4.igmp enabled true
+par SIRD.host[3].ipv4.igmp robustnessVariable 2
+par SIRD.host[3].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[3].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[3].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[3].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[3].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[3].ipv4.igmp startupQueryCount 2
+par SIRD.host[3].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[3].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[3].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[3].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[3].ipv4.icmp interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4.icmp routingTableModule "\"SIRD.host[3].ipv4.routingTable\""
+par SIRD.host[3].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[3].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[3].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].ipv4.mp forwardServiceRegistration true
+par SIRD.host[3].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[3].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[3].ipv4.ip interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4.ip routingTableModule "\"SIRD.host[3].ipv4.routingTable\""
+par SIRD.host[3].ipv4.ip arpModule "\"SIRD.host[3].ipv4.arp\""
+par SIRD.host[3].ipv4.ip icmpModule "\"SIRD.host[3].ipv4.icmp\""
+par SIRD.host[3].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[3].ipv4.ip timeToLive 32
+par SIRD.host[3].ipv4.ip multicastTimeToLive 32
+par SIRD.host[3].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[3].ipv4.ip limitedBroadcast false
+par SIRD.host[3].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[3].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[3].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[3].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[3].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[3].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[3].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[3].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[3].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[3].ipv4.arp interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4.arp routingTableModule "\"SIRD.host[3].ipv4.routingTable\""
+par SIRD.host[3].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[3].ipv4.arp retryCount 3
+par SIRD.host[3].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[3].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[3].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[3].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[3].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[3].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[3].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[3].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[3].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].ipv4.lp forwardServiceRegistration true
+par SIRD.host[3].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[3].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[3].ipv4 forwarding false
+par SIRD.host[3].ipv4 multicastForwarding false
+par SIRD.host[3].ipv4 interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[3].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].nl forwardServiceRegistration true
+par SIRD.host[3].nl forwardProtocolRegistration true
+par SIRD.host[3].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[3].udp interfaceTableModule "\"SIRD.host[3].interfaceTable\""
+par SIRD.host[3].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[3].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[3].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[3].udp defaultMulticastLoop true
+scalar SIRD.host[3].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[3].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[3].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[3].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[3].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[3].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[3].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[3].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[3].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[3].tcp advertisedWindow 7504
+par SIRD.host[3].tcp delayedAcksEnabled false
+par SIRD.host[3].tcp nagleEnabled true
+par SIRD.host[3].tcp limitedTransmitEnabled false
+par SIRD.host[3].tcp increasedIWEnabled false
+par SIRD.host[3].tcp sackSupport false
+par SIRD.host[3].tcp windowScalingSupport false
+par SIRD.host[3].tcp windowScalingFactor -1
+par SIRD.host[3].tcp timestampSupport false
+par SIRD.host[3].tcp mss 536
+par SIRD.host[3].tcp msl 120s
+attr unit s
+par SIRD.host[3].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[3].tcp useDataNotification false
+par SIRD.host[3].tcp dupthresh 3
+par SIRD.host[3].tcp initialSsthresh 4294967295
+par SIRD.host[3].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[3].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[3].tcp ecnWillingness false
+par SIRD.host[3].tcp dctcpGamma 0.0625
+par SIRD.host[3].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].tn forwardServiceRegistration true
+par SIRD.host[3].tn forwardProtocolRegistration true
+par SIRD.host[3].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[3].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[3].at forwardServiceRegistration true
+par SIRD.host[3].at forwardProtocolRegistration true
+par SIRD.host[3] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[3] hasStatus false
+par SIRD.host[3] osgModel "\"\""
+par SIRD.host[3] osgModelColor "\"\""
+par SIRD.host[3] canvasImage "\"\""
+par SIRD.host[3] canvasImageColor "\"\""
+par SIRD.host[3] recordPcap false
+par SIRD.host[3] numPcapRecorders 0
+par SIRD.host[3] numLoInterfaces 1
+par SIRD.host[3] numWlanInterfaces 0
+par SIRD.host[3] numEthInterfaces 0
+par SIRD.host[3] numPppInterfaces 0
+par SIRD.host[3] numTunInterfaces 0
+par SIRD.host[3] numVirtInterfaces 0
+par SIRD.host[3] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[3] hasIpv4 true
+par SIRD.host[3] hasIpv6 false
+par SIRD.host[3] hasGn false
+par SIRD.host[3] forwarding false
+par SIRD.host[3] multicastForwarding false
+par SIRD.host[3] hasUdp true
+par SIRD.host[3] hasTcp true
+par SIRD.host[3] hasSctp false
+par SIRD.host[3] numApps 0
+par SIRD.host[4].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[4].mobility subjectModule "\"^\""
+par SIRD.host[4].mobility coordinateSystemModule "\"\""
+par SIRD.host[4].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[4].mobility updateDisplayString true
+par SIRD.host[4].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[4].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[4].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[4].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[4].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[4].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[4].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[4].mobility faceForward true
+par SIRD.host[4].mobility alpha 0
+par SIRD.host[4].mobility speed 40mps
+attr unit mps
+par SIRD.host[4].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[4].mobility angle 216.995deg
+attr unit deg
+par SIRD.host[4].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[4].mobility margin 0m
+attr unit m
+par SIRD.host[4].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[4].interfaceTable displayAddresses false
+par SIRD.host[4].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].cb forwardServiceRegistration true
+par SIRD.host[4].cb forwardProtocolRegistration true
+par SIRD.host[4].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].bl forwardServiceRegistration true
+par SIRD.host[4].bl forwardProtocolRegistration true
+par SIRD.host[4].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].li forwardServiceRegistration true
+par SIRD.host[4].li forwardProtocolRegistration true
+par SIRD.host[4].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[4].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[4].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[4].lo[0].lo interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[4].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[4].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[4].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[4].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[4].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[4].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[4].lo[0] recordPcap false
+par SIRD.host[4].lo[0] numPcapRecorders 0
+par SIRD.host[4].lo[0] interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+scalar SIRD.host[4].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[4].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[4].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[4].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[4].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[4].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[4].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[4].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[4].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[4].ipv4.configurator interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4.configurator routingTableModule "\"SIRD.host[4].ipv4.routingTable\""
+par SIRD.host[4].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[4].ipv4.configurator configureRoutingTable true
+par SIRD.host[4].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[4].ipv4.routingTable interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[4].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[4].ipv4.routingTable forwarding false
+par SIRD.host[4].ipv4.routingTable multicastForwarding false
+par SIRD.host[4].ipv4.routingTable useAdminDist false
+par SIRD.host[4].ipv4.routingTable routingFile "\"\""
+par SIRD.host[4].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[4].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[4].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[4].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].ipv4.up forwardServiceRegistration true
+par SIRD.host[4].ipv4.up forwardProtocolRegistration true
+par SIRD.host[4].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[4].ipv4.igmp interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4.igmp routingTableModule "\"SIRD.host[4].ipv4.routingTable\""
+par SIRD.host[4].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[4].ipv4.igmp enabled true
+par SIRD.host[4].ipv4.igmp robustnessVariable 2
+par SIRD.host[4].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[4].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[4].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[4].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[4].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[4].ipv4.igmp startupQueryCount 2
+par SIRD.host[4].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[4].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[4].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[4].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[4].ipv4.icmp interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4.icmp routingTableModule "\"SIRD.host[4].ipv4.routingTable\""
+par SIRD.host[4].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[4].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[4].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].ipv4.mp forwardServiceRegistration true
+par SIRD.host[4].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[4].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[4].ipv4.ip interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4.ip routingTableModule "\"SIRD.host[4].ipv4.routingTable\""
+par SIRD.host[4].ipv4.ip arpModule "\"SIRD.host[4].ipv4.arp\""
+par SIRD.host[4].ipv4.ip icmpModule "\"SIRD.host[4].ipv4.icmp\""
+par SIRD.host[4].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[4].ipv4.ip timeToLive 32
+par SIRD.host[4].ipv4.ip multicastTimeToLive 32
+par SIRD.host[4].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[4].ipv4.ip limitedBroadcast false
+par SIRD.host[4].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[4].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[4].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[4].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[4].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[4].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[4].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[4].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[4].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[4].ipv4.arp interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4.arp routingTableModule "\"SIRD.host[4].ipv4.routingTable\""
+par SIRD.host[4].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[4].ipv4.arp retryCount 3
+par SIRD.host[4].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[4].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[4].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[4].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[4].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[4].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[4].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[4].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[4].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].ipv4.lp forwardServiceRegistration true
+par SIRD.host[4].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[4].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[4].ipv4 forwarding false
+par SIRD.host[4].ipv4 multicastForwarding false
+par SIRD.host[4].ipv4 interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[4].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].nl forwardServiceRegistration true
+par SIRD.host[4].nl forwardProtocolRegistration true
+par SIRD.host[4].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[4].udp interfaceTableModule "\"SIRD.host[4].interfaceTable\""
+par SIRD.host[4].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[4].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[4].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[4].udp defaultMulticastLoop true
+scalar SIRD.host[4].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[4].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[4].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[4].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[4].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[4].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[4].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[4].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[4].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[4].tcp advertisedWindow 7504
+par SIRD.host[4].tcp delayedAcksEnabled false
+par SIRD.host[4].tcp nagleEnabled true
+par SIRD.host[4].tcp limitedTransmitEnabled false
+par SIRD.host[4].tcp increasedIWEnabled false
+par SIRD.host[4].tcp sackSupport false
+par SIRD.host[4].tcp windowScalingSupport false
+par SIRD.host[4].tcp windowScalingFactor -1
+par SIRD.host[4].tcp timestampSupport false
+par SIRD.host[4].tcp mss 536
+par SIRD.host[4].tcp msl 120s
+attr unit s
+par SIRD.host[4].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[4].tcp useDataNotification false
+par SIRD.host[4].tcp dupthresh 3
+par SIRD.host[4].tcp initialSsthresh 4294967295
+par SIRD.host[4].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[4].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[4].tcp ecnWillingness false
+par SIRD.host[4].tcp dctcpGamma 0.0625
+par SIRD.host[4].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].tn forwardServiceRegistration true
+par SIRD.host[4].tn forwardProtocolRegistration true
+par SIRD.host[4].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[4].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[4].at forwardServiceRegistration true
+par SIRD.host[4].at forwardProtocolRegistration true
+par SIRD.host[4] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[4] hasStatus false
+par SIRD.host[4] osgModel "\"\""
+par SIRD.host[4] osgModelColor "\"\""
+par SIRD.host[4] canvasImage "\"\""
+par SIRD.host[4] canvasImageColor "\"\""
+par SIRD.host[4] recordPcap false
+par SIRD.host[4] numPcapRecorders 0
+par SIRD.host[4] numLoInterfaces 1
+par SIRD.host[4] numWlanInterfaces 0
+par SIRD.host[4] numEthInterfaces 0
+par SIRD.host[4] numPppInterfaces 0
+par SIRD.host[4] numTunInterfaces 0
+par SIRD.host[4] numVirtInterfaces 0
+par SIRD.host[4] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[4] hasIpv4 true
+par SIRD.host[4] hasIpv6 false
+par SIRD.host[4] hasGn false
+par SIRD.host[4] forwarding false
+par SIRD.host[4] multicastForwarding false
+par SIRD.host[4] hasUdp true
+par SIRD.host[4] hasTcp true
+par SIRD.host[4] hasSctp false
+par SIRD.host[4] numApps 0
+par SIRD.host[5].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[5].mobility subjectModule "\"^\""
+par SIRD.host[5].mobility coordinateSystemModule "\"\""
+par SIRD.host[5].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[5].mobility updateDisplayString true
+par SIRD.host[5].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[5].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[5].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[5].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[5].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[5].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[5].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[5].mobility faceForward true
+par SIRD.host[5].mobility alpha 0
+par SIRD.host[5].mobility speed 40mps
+attr unit mps
+par SIRD.host[5].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[5].mobility angle 308.86deg
+attr unit deg
+par SIRD.host[5].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[5].mobility margin 0m
+attr unit m
+par SIRD.host[5].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[5].interfaceTable displayAddresses false
+par SIRD.host[5].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].cb forwardServiceRegistration true
+par SIRD.host[5].cb forwardProtocolRegistration true
+par SIRD.host[5].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].bl forwardServiceRegistration true
+par SIRD.host[5].bl forwardProtocolRegistration true
+par SIRD.host[5].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].li forwardServiceRegistration true
+par SIRD.host[5].li forwardProtocolRegistration true
+par SIRD.host[5].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[5].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[5].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[5].lo[0].lo interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[5].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[5].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[5].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[5].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[5].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[5].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[5].lo[0] recordPcap false
+par SIRD.host[5].lo[0] numPcapRecorders 0
+par SIRD.host[5].lo[0] interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+scalar SIRD.host[5].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[5].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[5].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[5].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[5].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[5].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[5].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[5].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[5].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[5].ipv4.configurator interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4.configurator routingTableModule "\"SIRD.host[5].ipv4.routingTable\""
+par SIRD.host[5].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[5].ipv4.configurator configureRoutingTable true
+par SIRD.host[5].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[5].ipv4.routingTable interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[5].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[5].ipv4.routingTable forwarding false
+par SIRD.host[5].ipv4.routingTable multicastForwarding false
+par SIRD.host[5].ipv4.routingTable useAdminDist false
+par SIRD.host[5].ipv4.routingTable routingFile "\"\""
+par SIRD.host[5].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[5].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[5].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[5].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].ipv4.up forwardServiceRegistration true
+par SIRD.host[5].ipv4.up forwardProtocolRegistration true
+par SIRD.host[5].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[5].ipv4.igmp interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4.igmp routingTableModule "\"SIRD.host[5].ipv4.routingTable\""
+par SIRD.host[5].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[5].ipv4.igmp enabled true
+par SIRD.host[5].ipv4.igmp robustnessVariable 2
+par SIRD.host[5].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[5].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[5].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[5].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[5].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[5].ipv4.igmp startupQueryCount 2
+par SIRD.host[5].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[5].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[5].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[5].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[5].ipv4.icmp interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4.icmp routingTableModule "\"SIRD.host[5].ipv4.routingTable\""
+par SIRD.host[5].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[5].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[5].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].ipv4.mp forwardServiceRegistration true
+par SIRD.host[5].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[5].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[5].ipv4.ip interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4.ip routingTableModule "\"SIRD.host[5].ipv4.routingTable\""
+par SIRD.host[5].ipv4.ip arpModule "\"SIRD.host[5].ipv4.arp\""
+par SIRD.host[5].ipv4.ip icmpModule "\"SIRD.host[5].ipv4.icmp\""
+par SIRD.host[5].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[5].ipv4.ip timeToLive 32
+par SIRD.host[5].ipv4.ip multicastTimeToLive 32
+par SIRD.host[5].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[5].ipv4.ip limitedBroadcast false
+par SIRD.host[5].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[5].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[5].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[5].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[5].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[5].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[5].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[5].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[5].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[5].ipv4.arp interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4.arp routingTableModule "\"SIRD.host[5].ipv4.routingTable\""
+par SIRD.host[5].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[5].ipv4.arp retryCount 3
+par SIRD.host[5].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[5].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[5].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[5].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[5].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[5].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[5].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[5].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[5].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].ipv4.lp forwardServiceRegistration true
+par SIRD.host[5].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[5].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[5].ipv4 forwarding false
+par SIRD.host[5].ipv4 multicastForwarding false
+par SIRD.host[5].ipv4 interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[5].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].nl forwardServiceRegistration true
+par SIRD.host[5].nl forwardProtocolRegistration true
+par SIRD.host[5].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[5].udp interfaceTableModule "\"SIRD.host[5].interfaceTable\""
+par SIRD.host[5].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[5].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[5].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[5].udp defaultMulticastLoop true
+scalar SIRD.host[5].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[5].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[5].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[5].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[5].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[5].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[5].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[5].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[5].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[5].tcp advertisedWindow 7504
+par SIRD.host[5].tcp delayedAcksEnabled false
+par SIRD.host[5].tcp nagleEnabled true
+par SIRD.host[5].tcp limitedTransmitEnabled false
+par SIRD.host[5].tcp increasedIWEnabled false
+par SIRD.host[5].tcp sackSupport false
+par SIRD.host[5].tcp windowScalingSupport false
+par SIRD.host[5].tcp windowScalingFactor -1
+par SIRD.host[5].tcp timestampSupport false
+par SIRD.host[5].tcp mss 536
+par SIRD.host[5].tcp msl 120s
+attr unit s
+par SIRD.host[5].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[5].tcp useDataNotification false
+par SIRD.host[5].tcp dupthresh 3
+par SIRD.host[5].tcp initialSsthresh 4294967295
+par SIRD.host[5].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[5].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[5].tcp ecnWillingness false
+par SIRD.host[5].tcp dctcpGamma 0.0625
+par SIRD.host[5].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].tn forwardServiceRegistration true
+par SIRD.host[5].tn forwardProtocolRegistration true
+par SIRD.host[5].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[5].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[5].at forwardServiceRegistration true
+par SIRD.host[5].at forwardProtocolRegistration true
+par SIRD.host[5] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[5] hasStatus false
+par SIRD.host[5] osgModel "\"\""
+par SIRD.host[5] osgModelColor "\"\""
+par SIRD.host[5] canvasImage "\"\""
+par SIRD.host[5] canvasImageColor "\"\""
+par SIRD.host[5] recordPcap false
+par SIRD.host[5] numPcapRecorders 0
+par SIRD.host[5] numLoInterfaces 1
+par SIRD.host[5] numWlanInterfaces 0
+par SIRD.host[5] numEthInterfaces 0
+par SIRD.host[5] numPppInterfaces 0
+par SIRD.host[5] numTunInterfaces 0
+par SIRD.host[5] numVirtInterfaces 0
+par SIRD.host[5] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[5] hasIpv4 true
+par SIRD.host[5] hasIpv6 false
+par SIRD.host[5] hasGn false
+par SIRD.host[5] forwarding false
+par SIRD.host[5] multicastForwarding false
+par SIRD.host[5] hasUdp true
+par SIRD.host[5] hasTcp true
+par SIRD.host[5] hasSctp false
+par SIRD.host[5] numApps 0
+par SIRD.host[6].mobility typename "\"inet.mobility.single.GaussMarkovMobility\""
+par SIRD.host[6].mobility subjectModule "\"^\""
+par SIRD.host[6].mobility coordinateSystemModule "\"\""
+par SIRD.host[6].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par SIRD.host[6].mobility updateDisplayString true
+par SIRD.host[6].mobility constraintAreaMinX 0m
+attr unit m
+par SIRD.host[6].mobility constraintAreaMinY 0m
+attr unit m
+par SIRD.host[6].mobility constraintAreaMinZ 0m
+attr unit m
+par SIRD.host[6].mobility constraintAreaMaxX 2000m
+attr unit m
+par SIRD.host[6].mobility constraintAreaMaxY 1200m
+attr unit m
+par SIRD.host[6].mobility constraintAreaMaxZ 0m
+attr unit m
+par SIRD.host[6].mobility updateInterval 0.1s
+attr unit s
+par SIRD.host[6].mobility faceForward true
+par SIRD.host[6].mobility alpha 0
+par SIRD.host[6].mobility speed 40mps
+attr unit mps
+par SIRD.host[6].mobility speedStdDev 0.5mps
+attr unit mps
+par SIRD.host[6].mobility angle 196.158deg
+attr unit deg
+par SIRD.host[6].mobility angleStdDev 28.6479deg
+attr unit deg
+par SIRD.host[6].mobility margin 0m
+attr unit m
+par SIRD.host[6].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par SIRD.host[6].interfaceTable displayAddresses false
+par SIRD.host[6].cb typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].cb forwardServiceRegistration true
+par SIRD.host[6].cb forwardProtocolRegistration true
+par SIRD.host[6].bl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].bl forwardServiceRegistration true
+par SIRD.host[6].bl forwardProtocolRegistration true
+par SIRD.host[6].li typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].li displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].li forwardServiceRegistration true
+par SIRD.host[6].li forwardProtocolRegistration true
+par SIRD.host[6].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[6].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par SIRD.host[6].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par SIRD.host[6].lo[0].lo interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].lo[0].lo mtu 4470B
+attr unit B
+scalar SIRD.host[6].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SIRD.host[6].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SIRD.host[6].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SIRD.host[6].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par SIRD.host[6].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par SIRD.host[6].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par SIRD.host[6].lo[0] recordPcap false
+par SIRD.host[6].lo[0] numPcapRecorders 0
+par SIRD.host[6].lo[0] interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+scalar SIRD.host[6].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar SIRD.host[6].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar SIRD.host[6].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar SIRD.host[6].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par SIRD.host[6].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[6].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par SIRD.host[6].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par SIRD.host[6].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par SIRD.host[6].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par SIRD.host[6].ipv4.configurator interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4.configurator routingTableModule "\"SIRD.host[6].ipv4.routingTable\""
+par SIRD.host[6].ipv4.configurator networkConfiguratorModule "\"\""
+par SIRD.host[6].ipv4.configurator configureRoutingTable true
+par SIRD.host[6].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par SIRD.host[6].ipv4.routingTable interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4.routingTable routerId "\"auto\""
+par SIRD.host[6].ipv4.routingTable netmaskRoutes "\"*\""
+par SIRD.host[6].ipv4.routingTable forwarding false
+par SIRD.host[6].ipv4.routingTable multicastForwarding false
+par SIRD.host[6].ipv4.routingTable useAdminDist false
+par SIRD.host[6].ipv4.routingTable routingFile "\"\""
+par SIRD.host[6].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par SIRD.host[6].ipv4.natTable networkProtocolModule "\"^.ip\""
+par SIRD.host[6].ipv4.natTable config "<config/> at content:1"
+par SIRD.host[6].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].ipv4.up forwardServiceRegistration true
+par SIRD.host[6].ipv4.up forwardProtocolRegistration true
+par SIRD.host[6].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par SIRD.host[6].ipv4.igmp interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4.igmp routingTableModule "\"SIRD.host[6].ipv4.routingTable\""
+par SIRD.host[6].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[6].ipv4.igmp enabled true
+par SIRD.host[6].ipv4.igmp robustnessVariable 2
+par SIRD.host[6].ipv4.igmp queryInterval 125s
+attr unit s
+par SIRD.host[6].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par SIRD.host[6].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par SIRD.host[6].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par SIRD.host[6].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par SIRD.host[6].ipv4.igmp startupQueryCount 2
+par SIRD.host[6].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par SIRD.host[6].ipv4.igmp lastMemberQueryCount 2
+par SIRD.host[6].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par SIRD.host[6].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par SIRD.host[6].ipv4.icmp interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4.icmp routingTableModule "\"SIRD.host[6].ipv4.routingTable\""
+par SIRD.host[6].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par SIRD.host[6].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par SIRD.host[6].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].ipv4.mp forwardServiceRegistration true
+par SIRD.host[6].ipv4.mp forwardProtocolRegistration true
+par SIRD.host[6].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par SIRD.host[6].ipv4.ip interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4.ip routingTableModule "\"SIRD.host[6].ipv4.routingTable\""
+par SIRD.host[6].ipv4.ip arpModule "\"SIRD.host[6].ipv4.arp\""
+par SIRD.host[6].ipv4.ip icmpModule "\"SIRD.host[6].ipv4.icmp\""
+par SIRD.host[6].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[6].ipv4.ip timeToLive 32
+par SIRD.host[6].ipv4.ip multicastTimeToLive 32
+par SIRD.host[6].ipv4.ip fragmentTimeout 60s
+attr unit s
+par SIRD.host[6].ipv4.ip limitedBroadcast false
+par SIRD.host[6].ipv4.ip directBroadcastInterfaces "\"\""
+scalar SIRD.host[6].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SIRD.host[6].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SIRD.host[6].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SIRD.host[6].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SIRD.host[6].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SIRD.host[6].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SIRD.host[6].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par SIRD.host[6].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par SIRD.host[6].ipv4.arp interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4.arp routingTableModule "\"SIRD.host[6].ipv4.routingTable\""
+par SIRD.host[6].ipv4.arp retryTimeout 1s
+attr unit s
+par SIRD.host[6].ipv4.arp retryCount 3
+par SIRD.host[6].ipv4.arp cacheTimeout 120s
+attr unit s
+par SIRD.host[6].ipv4.arp proxyArpInterfaces "\"\""
+scalar SIRD.host[6].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SIRD.host[6].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SIRD.host[6].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SIRD.host[6].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar SIRD.host[6].ipv4.arp arpResolutionCompleted:count 0
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar SIRD.host[6].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+par SIRD.host[6].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].ipv4.lp forwardServiceRegistration true
+par SIRD.host[6].ipv4.lp forwardProtocolRegistration true
+par SIRD.host[6].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par SIRD.host[6].ipv4 forwarding false
+par SIRD.host[6].ipv4 multicastForwarding false
+par SIRD.host[6].ipv4 interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].ipv4 displayStringTextFormat "\"%i\""
+par SIRD.host[6].nl typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].nl forwardServiceRegistration true
+par SIRD.host[6].nl forwardProtocolRegistration true
+par SIRD.host[6].udp typename "\"inet.transportlayer.udp.Udp\""
+par SIRD.host[6].udp interfaceTableModule "\"SIRD.host[6].interfaceTable\""
+par SIRD.host[6].udp icmpModule "\"^.ipv4.icmp\""
+par SIRD.host[6].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par SIRD.host[6].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par SIRD.host[6].udp defaultMulticastLoop true
+scalar SIRD.host[6].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar SIRD.host[6].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SIRD.host[6].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar SIRD.host[6].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SIRD.host[6].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SIRD.host[6].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SIRD.host[6].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par SIRD.host[6].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par SIRD.host[6].tcp crcMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[6].tcp advertisedWindow 7504
+par SIRD.host[6].tcp delayedAcksEnabled false
+par SIRD.host[6].tcp nagleEnabled true
+par SIRD.host[6].tcp limitedTransmitEnabled false
+par SIRD.host[6].tcp increasedIWEnabled false
+par SIRD.host[6].tcp sackSupport false
+par SIRD.host[6].tcp windowScalingSupport false
+par SIRD.host[6].tcp windowScalingFactor -1
+par SIRD.host[6].tcp timestampSupport false
+par SIRD.host[6].tcp mss 536
+par SIRD.host[6].tcp msl 120s
+attr unit s
+par SIRD.host[6].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par SIRD.host[6].tcp useDataNotification false
+par SIRD.host[6].tcp dupthresh 3
+par SIRD.host[6].tcp initialSsthresh 4294967295
+par SIRD.host[6].tcp stopOperationExtraTime 0s
+attr unit s
+par SIRD.host[6].tcp stopOperationTimeout 2s
+attr unit s
+par SIRD.host[6].tcp ecnWillingness false
+par SIRD.host[6].tcp dctcpGamma 0.0625
+par SIRD.host[6].tn typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].tn forwardServiceRegistration true
+par SIRD.host[6].tn forwardProtocolRegistration true
+par SIRD.host[6].at typename "\"inet.common.MessageDispatcher\""
+par SIRD.host[6].at displayStringTextFormat "\"processed %p pk (%l)\""
+par SIRD.host[6].at forwardServiceRegistration true
+par SIRD.host[6].at forwardProtocolRegistration true
+par SIRD.host[6] typename "\"inet.node.inet.StandardHost\""
+par SIRD.host[6] hasStatus false
+par SIRD.host[6] osgModel "\"\""
+par SIRD.host[6] osgModelColor "\"\""
+par SIRD.host[6] canvasImage "\"\""
+par SIRD.host[6] canvasImageColor "\"\""
+par SIRD.host[6] recordPcap false
+par SIRD.host[6] numPcapRecorders 0
+par SIRD.host[6] numLoInterfaces 1
+par SIRD.host[6] numWlanInterfaces 0
+par SIRD.host[6] numEthInterfaces 0
+par SIRD.host[6] numPppInterfaces 0
+par SIRD.host[6] numTunInterfaces 0
+par SIRD.host[6] numVirtInterfaces 0
+par SIRD.host[6] fcsMode "\"declared\""
+attr enum declared,computed
+par SIRD.host[6] hasIpv4 true
+par SIRD.host[6] hasIpv6 false
+par SIRD.host[6] hasGn false
+par SIRD.host[6] forwarding false
+par SIRD.host[6] multicastForwarding false
+par SIRD.host[6] hasUdp true
+par SIRD.host[6] hasTcp true
+par SIRD.host[6] hasSctp false
+par SIRD.host[6] numApps 0
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer typename "\"inet.visualizer.canvas.scene.SceneCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer physicalEnvironmentModule "\"physicalEnvironment\""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer axisLength "nan m"
+attr mutable ""
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer animationSpeed 0
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer sceneMinX "nan m"
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer sceneMinY "nan m"
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer sceneMinZ "nan m"
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer sceneMaxX "nan m"
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer sceneMaxY "nan m"
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer sceneMaxZ "nan m"
+attr unit m
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer viewAngle "\"x right y down z out\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer viewScale "\"1 1\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer viewTranslation "\"0 0\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.sceneVisualizer descriptionFigure "\"\""
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer typename "\"inet.visualizer.canvas.environment.PhysicalEnvironmentCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer physicalEnvironmentModule "\"physicalEnvironment\""
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer displayObjects true
+par SIRD.visualizer.canvasVisualizer.physicalEnvironmentVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer typename "\"inet.visualizer.canvas.scene.NetworkNodeCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer annotationSpacing 4
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer placementPenalty 10
+par SIRD.visualizer.canvasVisualizer.networkNodeVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer typename "\"inet.visualizer.canvas.scene.NetworkConnectionCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer displayNetworkConnections true
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer nodeFilter "\"\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer lineColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer lineWidth 1
+par SIRD.visualizer.canvasVisualizer.networkConnectionVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer typename "\"inet.visualizer.canvas.mobility.MobilityCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer displayMobility true
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer animationSpeed 0
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer moduleFilter "\"**.mobility\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer displayPositions true
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer positionCircleRadius 4
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer positionCircleLineWidth 1
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer positionCircleLineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer positionCircleFillColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer displayOrientations true
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationPieRadius 32
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationPieSize 0.2
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationPieOpacity 0.25
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationLineColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationLineWidth 1
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer orientationFillColor "\"blue\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer displayVelocities true
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer velocityArrowScale 1
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer velocityLineColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer velocityLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer velocityLineWidth 1
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer displayMovementTrails true
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer movementTrailLineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer movementTrailLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer movementTrailLineWidth 1
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer trailLength 100
+par SIRD.visualizer.canvasVisualizer.mobilityVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer typename "\"inet.visualizer.canvas.common.StatisticCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer displayStatistics true
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer signalName "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer statisticName "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer statisticUnit "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer statisticExpression "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer sourceFilter "\"**\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer format "\"%n: %v %u\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer unit "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer font "\"<default>\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer textColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer backgroundColor "\"white\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer opacity 1
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer placementHint "\"top\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer propertyName "\"\""
+par SIRD.visualizer.canvasVisualizer.statisticVisualizer propertyIndex "\"\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer typename "\"inet.visualizer.canvas.common.InfoCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer displayInfos true
+par SIRD.visualizer.canvasVisualizer.infoVisualizer modules "\"\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer format "\"%t\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer font "\"<default>\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer textColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer backgroundColor "\"white\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer opacity 1
+par SIRD.visualizer.canvasVisualizer.infoVisualizer placementHint "\"top\""
+par SIRD.visualizer.canvasVisualizer.infoVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.infoVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer typename "\"inet.visualizer.canvas.power.EnergyStorageCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer displayEnergyStorages false
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer energyStorageFilter "\"**\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer color "\"green\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer width 8
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer height 24
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer spacing 2
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer placementHint "\"right\""
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.energyStorageVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer typename "\"inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mediumModule "\"radioMedium\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer interfaceFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displaySignals false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalPropagationAnimationSpeed "nan "
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalPropagationAnimationTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalPropagationAdditionalTime 0s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalTransmissionAnimationSpeed "nan "
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalTransmissionAnimationTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalAnimationSpeedChangeTimeMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalAnimationSpeedChangeTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displaySignalDepartures false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalDepartureImage "\"misc/signal_departure.png\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalDeparturePlacementHint "\"topCenter\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalDeparturePlacementPriority 1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displaySignalArrivals false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalArrivalImage "\"misc/signal_arrival.png\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalArrivalPlacementHint "\"topCenter\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalArrivalPlacementPriority -1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displayCommunicationRanges false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer communicationRangeLineColor "\"blue\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer communicationRangeLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer communicationRangeLineWidth 1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displayInterferenceRanges false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer interferenceRangeLineColor "\"gray\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer interferenceRangeLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer interferenceRangeLineWidth 1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer autoPowerAxis true
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMinPower "inf dBmW"
+attr unit dBmW
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMaxPower 0dBmW
+attr unit dBmW
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMinPowerDensity "inf dBmWpMHz"
+attr unit dBmWpMHz
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMaxPowerDensity "-inf dBmWpMHz"
+attr unit dBmWpMHz
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer autoTimeAxis true
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMinTime 0s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMaxTime 0s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer autoFrequencyAxis true
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMinFrequency "inf Hz"
+attr unit Hz
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalMaxFrequency "-inf Hz"
+attr unit Hz
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displayMainPowerDensityMap false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapPixmapDensity 1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapMinX 0
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapMaxX "nan "
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapMinY 0
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapMaxY "nan "
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapZ 0
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapFigureXTickCount 3
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer mainPowerDensityMapFigureYTickCount 3
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displayPowerDensityMaps false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapMode "\"auto\""
+attr enum total,signal,auto
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapPixelMode "\"mean\""
+attr enum sample,partition,mean
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapApproximationSize 10
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapCenterFrequency "nan Hz"
+attr mutable ""
+attr unit Hz
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapBandwidth 0Hz
+attr mutable ""
+attr unit Hz
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapFigureWidth 200
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapFigureHeight 120
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapPixmapWidth 200
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapPixmapHeight 120
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapZ 0
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapFigureXTickCount 3
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer powerDensityMapFigureYTickCount 3
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displaySpectrums false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumMode "\"auto\""
+attr enum total,signal,auto
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumFigureWidth 200
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumFigureHeight 120
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumFigureXTickCount 3
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumFigureYTickCount 5
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumFigureInterpolationSize 5
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumPlacementHint "\"bottomCenter\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrumPlacementPriority -1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displaySpectrograms false
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramMode "\"auto\""
+attr enum total,signal,auto
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramPixelMode "\"mean\""
+attr enum sample,partition,mean
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramFigureWidth 200
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramFigureHeight 120
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramPixmapWidth 200
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramPixmapHeight 120
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramFigureXTickCount 3
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramFigureYTickCount 5
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramPlacementHint "\"bottomCenter\""
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer spectrogramPlacementPriority -1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalShape "\"ring\""
+attr enum ring,sphere
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalOpacity 0.5
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalRingCount 20
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalRingSize 50m
+attr unit m
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalFadingDistance 50m
+attr unit m
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalFadingFactor 1.2
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalWaveCount 20
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalWaveLength 50m
+attr unit m
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalWaveWidth 10m
+attr unit m
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer signalWaveFadingAnimationSpeedFactor 1
+par SIRD.visualizer.canvasVisualizer.mediumVisualizer displayCommunicationHeat false
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer typename "\"inet.visualizer.canvas.physicallayer.TracingObstacleLossCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer displayIntersections false
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer intersectionLineColor "\"red\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer intersectionLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer intersectionLineWidth 1
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer displayFaceNormalVectors false
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer faceNormalLineColor "\"grey\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer faceNormalLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer faceNormalLineWidth 1
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.obstacleLossVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer typename "\"inet.visualizer.canvas.common.PacketDropCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer displayPacketDrops false
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer interfaceFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer detailsFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer icon "\"msg/packet_s\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer iconTintAmount 1
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer iconTintColor "\"dark\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer labelFormat "\"%n\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer labelFont "\"<default>\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer labelColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer dx 32
+par SIRD.visualizer.canvasVisualizer.packetDropVisualizer dy 64
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer typename "\"inet.visualizer.canvas.flow.PacketFlowCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer displayRoutes false
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer startPathSignal "\"packetFlowStarted\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer extendPathSignal "\"packetReceivedFromLower\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer endPathSignal "\"packetFlowEnded\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineStyle "\"dashed\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineSmooth false
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer labelFormat "\"%L %p pk (%l)\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer labelFont "\"<default>, 8px\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer labelColor "\"\""
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer fadeOutTime 0s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.packetFlowVisualizer zIndex 4
+par SIRD.visualizer.canvasVisualizer.queueVisualizer typename "\"inet.visualizer.canvas.common.QueueCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer displayQueues false
+par SIRD.visualizer.canvasVisualizer.queueVisualizer queueFilter "\"**\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer color "\"blue\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer width 8
+par SIRD.visualizer.canvasVisualizer.queueVisualizer height 24
+par SIRD.visualizer.canvasVisualizer.queueVisualizer spacing 2
+par SIRD.visualizer.canvasVisualizer.queueVisualizer placementHint "\"right\""
+par SIRD.visualizer.canvasVisualizer.queueVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.queueVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer typename "\"inet.visualizer.canvas.common.GateScheduleCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer displayGateSchedules false
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer labelFormat "\"%i %D\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer gateFilter "\"**\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer width 100
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer height 8
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer spacing 2
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer placementHint "\"right\""
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer displayDuration 0s
+attr mutable ""
+attr unit s
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer currentTimePosition 50
+par SIRD.visualizer.canvasVisualizer.gateScheduleVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.radioVisualizer typename "\"inet.visualizer.canvas.physicallayer.RadioCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer displayRadios false
+par SIRD.visualizer.canvasVisualizer.radioVisualizer displayRadioMode true
+par SIRD.visualizer.canvasVisualizer.radioVisualizer displayReceptionState true
+par SIRD.visualizer.canvasVisualizer.radioVisualizer displayTransmissionState true
+par SIRD.visualizer.canvasVisualizer.radioVisualizer displayAntennaLobes false
+par SIRD.visualizer.canvasVisualizer.radioVisualizer radioFilter "\"**\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer radioModeImages "\"block/process_vs block/timer_vs block/wrx_vs block/wtx_vs block/wrxtx_vs block/cogwheel_vs\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer receptionStateImages "\"- - misc/receiving misc/receiving\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer transmissionStateImages "\"- - misc/transmitting\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer width 16
+par SIRD.visualizer.canvasVisualizer.radioVisualizer height 16
+par SIRD.visualizer.canvasVisualizer.radioVisualizer placementHint "\"bottomRight\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeNormalize false
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeRelativeLabels false
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobePlaneGlobal true
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobePlane "\"view\""
+attr enum view,xy,xz,yz
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeMode "\"logarithmic\""
+attr enum logarithmic,linear
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeLogarithmicBase 10
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeLogarithmicScale 100
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeRadius 100
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeStep 10deg
+attr unit deg
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeOpacity 0.25
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeLineSmooth true
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeLineColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeLineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeLineWidth 1
+par SIRD.visualizer.canvasVisualizer.radioVisualizer antennaLobeFillColor "\"white\""
+par SIRD.visualizer.canvasVisualizer.radioVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer typename "\"inet.visualizer.canvas.physicallayer.PhysicalLinkCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer displayLinks false
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer activityLevel "\"service\""
+attr enum service,peer,protocol
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer interfaceFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineColor "\"olive\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineStyle "\"dotted\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer labelFormat "\"%n\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer labelFont "\"<default>, 8px\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer labelColor "\"olive\""
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer holdAnimationTime 0s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.physicalLinkVisualizer zIndex 1
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer typename "\"inet.visualizer.canvas.linklayer.InterfaceTableCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer displayInterfaceTables false
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer displayWiredInterfacesAtConnections true
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer displayBackground false
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer interfaceFilter "\"not(lo*)\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer format "\"%N %\\\\%a%/%l\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer placementHint "\"top\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer font "\"<default>\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer textColor "\"#005030\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer backgroundColor "\"white\""
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer opacity 1
+par SIRD.visualizer.canvasVisualizer.interfaceTableVisualizer zIndex 10
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer typename "\"inet.visualizer.canvas.linklayer.DataLinkCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer displayLinks false
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer activityLevel "\"service\""
+attr enum service,peer,protocol
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer interfaceFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineColor "\"darkcyan\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer labelFormat "\"%n\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer labelFont "\"<default>, 8px\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer labelColor "\"darkcyan\""
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer holdAnimationTime 0s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.dataLinkVisualizer zIndex 2
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer typename "\"inet.visualizer.canvas.linklayer.LinkBreakCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer displayLinkBreaks false
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer interfaceFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer icon "\"status/stop\""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer iconTintAmount 0
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer iconTintColor "\"\""
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.linkBreakVisualizer zIndex 2
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer typename "\"inet.visualizer.canvas.linklayer.Ieee80211CanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer displayAssociations false
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer interfaceFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer minPower -85dBm
+attr unit dBm
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer maxPower -50dBm
+attr unit dBm
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer icons "\"misc/signal_power_0 misc/signal_power_1 misc/signal_power_2 misc/signal_power_3\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer iconColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer labelFont "\"<default>\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer labelColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer placementHint "\"top\""
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.ieee80211Visualizer zIndex 2
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer typename "\"inet.visualizer.canvas.networklayer.NetworkRouteCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer displayRoutes false
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer startPathSignal "\"packetReceivedFromUpper\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer extendPathSignal "\"packetReceivedFromLower\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer endPathSignal "\"packetSentToUpper\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineSmooth false
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer labelFormat "\"%n\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer labelFont "\"<default>, 8px\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer labelColor "\"\""
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.networkRouteVisualizer zIndex 3
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer typename "\"inet.visualizer.canvas.networklayer.RoutingTableCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer displayRoutingTables false
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer displayRoutesIndividually true
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer displayLabels true
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer destinationFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineWidth 2
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer labelFormat "\"%d/%m -> %g (%n)\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer labelFont "\"<default>, 8px\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer labelColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.routingTableVisualizer zIndex 0
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer typename "\"inet.visualizer.canvas.transportlayer.TransportRouteCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer displayRoutes false
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer startPathSignal "\"packetReceivedFromUpper\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer extendPathSignal "\"packetReceivedFromLower\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer endPathSignal "\"packetSentToUpper\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer nodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer packetFilter "(omnetpp::cValueHolder)holder: \"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineSmooth false
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer labelFormat "\"%n\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer labelFont "\"<default>, 8px\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer labelColor "\"\""
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer fadeOutMode "\"realTime\""
+attr enum realTime,animationTime,simulationTime
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer fadeOutTime 1s
+attr unit s
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer fadeOutAnimationSpeed 0
+par SIRD.visualizer.canvasVisualizer.transportRouteVisualizer zIndex 4
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer typename "\"inet.visualizer.canvas.transportlayer.TransportConnectionCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer networkNodeVisualizerModule "\"^.networkNodeVisualizer\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer displayTransportConnections false
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer sourceNodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer sourcePortFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer destinationNodeFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer destinationPortFilter "\"*\""
+attr mutable ""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer icon "\"misc/marker_s\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer iconColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer labelFont "\"<default>\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer labelColor "\"black\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer placementHint "\"top\""
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer placementPriority 0
+par SIRD.visualizer.canvasVisualizer.transportConnectionVisualizer zIndex 4
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer typename "\"inet.visualizer.canvas.configurator.FailureProtectionConfigurationCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer displayTrees false
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineSmooth false
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer failureProtectionConfiguratorModule "\"failureProtectionConfigurator\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer streamFilter "\"*\""
+par SIRD.visualizer.canvasVisualizer.failureProtectionConfigurationVisualizer zIndex 3
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer typename "\"inet.visualizer.canvas.configurator.StreamRedundancyConfigurationCanvasVisualizer\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer visualizationTargetModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer visualizationSubjectModule "\"^.^.^\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer tags "\"\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer displayTrees false
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineColor "\"dark\""
+attr enum light,dark
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineStyle "\"solid\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineWidth 3
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineSmooth false
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineShift 16
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineShiftMode "\"normal\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineContactSpacing 3
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer lineContactMode "\"rectangular\""
+attr enum circular,rectangular
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer streamRedundancyConfiguratorModule "\"streamRedundancyConfigurator\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer streamFilter "\"*\""
+par SIRD.visualizer.canvasVisualizer.streamRedundancyConfigurationVisualizer zIndex 3
+par SIRD.visualizer.canvasVisualizer typename "\"inet.visualizer.canvas.integrated.IntegratedCanvasVisualizer\""
+par SIRD.visualizer typename "\"inet.visualizer.common.IntegratedVisualizer\""
+par SIRD typename "\"inet.showcases.mobility.basic.SIRD\""
+par SIRD numHosts 7
+
